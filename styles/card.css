@@ -75,7 +75,7 @@ body {
 
 .card__avatar-wrap {
   position: absolute;
-  top: 80px;
+  top: 100px;
   margin-left: 32px;
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 .card__header {
-  margin-top: 220px;
+  margin-top: 240px;
 }
 
 .card__name {
