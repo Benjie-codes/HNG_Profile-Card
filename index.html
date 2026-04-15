@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/card.css">
+  <script src="scripts/card.js" defer></script>
+</head>
+<body>
+  <div class="card__banner" aria-hidden="true"></div>
+  <article data-testid="test-profile-card" class="profile-card">
+    <figure class="card__avatar-wrap">
+      <img data-testid="test-user-avatar"
+           src="assets/avatar-placeholder.png"
+           alt=""
+           class="card__avatar">
+      <input type="file" accept="image/*" id="avatar-upload" aria-label="Upload profile photo" class="sr-only">
+      <label for="avatar-upload" class="card__avatar-edit" role="button" tabindex="0" style="display: block; text-align: center; margin-top: 8px; font-size: 0.8rem; font-weight: 600; color: var(--color-accent); cursor: pointer;">Edit photo</label>
+      <figcaption class="sr-only">Benjamin Samuel</figcaption>
+    </figure>
+    <header class="card__header">
+      <h2 data-testid="test-user-name" class="card__name">Benjamin Samuel</h2>
+      <p class="card__title">Software Engineer · PH, Nigeria</p>
+    </header>
+    <p data-testid="test-user-bio" class="card__bio">
+      I am a software engineer with a passion for building accessible, performant, and user-friendly web interfaces. I am always exploring new front-end tools and technologies.
+    </p>
+    <div class="card__meta">
+      <span class="card__time-label">Session time (ms):</span>
+      <output data-testid="test-user-time"
+              aria-live="polite"
+              aria-atomic="true"
+              aria-relevant="text"
+              class="card__time">0</output>
+    </div>
+    <div class="card__role-badge">Software Engineer</div>
+    <nav aria-label="Emma's social profiles"
+         data-testid="test-user-social-links"
+         class="card__socials">
+      <ul role="list">
+        <li><a data-testid="test-user-social-twitter"
+               href="https://x.com/benjhamine_"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="">Twitter</a></li>
+        <li><a data-testid="test-user-social-github"
+               href="https://github.com/benjhie-codes"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="">GitHub</a></li>
+        <li><a data-testid="test-user-social-instagram"
+               href="https://instagram.com/upsln_"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="">Instagram</a></li>
+      </ul>
+    </nav>
+    <section class="card__list-section" aria-labelledby="hobbies-heading">
+      <h3 id="hobbies-heading" class="card__list-title">Hobbies</h3>
+      <ul data-testid="test-user-hobbies" class="card__tag-list" role="list">
+        <li>Open-source contribution</li>
+        <li>UI sketching</li>
+        <li>Distance running</li>
+      </ul>
+    </section>
+    <section class="card__list-section" aria-labelledby="dislikes-heading">
+      <h3 id="dislikes-heading" class="card__list-title">Dislikes</h3>
+      <ul data-testid="test-user-dislikes" class="card__tag-list" role="list">
+        <li>Unreviewed PRs</li>
+        <li>Flaky tests</li>
+        <li>Meetings without agendas</li>
+      </ul>
+    </section>
+  </article>
+  <div aria-live="assertive" class="sr-only" id="sr-announce"></div>
+  <!-- STAGE 2 COMPLETE -->
+</body>
+</html>
