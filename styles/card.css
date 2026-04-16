@@ -48,7 +48,6 @@ body {
   background: var(--color-bg);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
-  /* Fix 2 & 7: default overflow hidden keeps banner clipped safely for mobile */
   overflow: hidden;
   position: relative;
   display: flex;
@@ -59,32 +58,27 @@ body {
 
 .card__banner {
   height: 120px;
-  background: linear-gradient(120deg, var(--color-banner-a), var(--color-banner-b));
+  background-image: url('../assets/banner.jpg');
+  background-size: cover;
+  background-position: center;
   position: relative;
 }
 
-.card__banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.08;
-  background-image: repeating-radial-gradient(circle at center,
-      rgba(0, 0, 0, 0.8) 0px,
-      rgba(0, 0, 0, 0.8) 1px,
-      transparent 1px,
-      transparent 3px);
-  pointer-events: none;
-}
+
 
 .card__avatar-wrap {
   position: absolute;
   top: 100px;
-  margin-left: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card__avatar {
-  width: 96px;
-  height: 96px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   border: 4px solid var(--color-bg);
   box-shadow: 0 0 0 2px var(--color-banner-b);
@@ -95,6 +89,7 @@ body {
 .card__header,
 .card__bio {
   padding: 0 32px;
+  text-align: center;
 }
 
 .card__header {
@@ -106,7 +101,6 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 4px;
-  /* Fix 5: Ensure long names wrap and do not break layout */
   overflow-wrap: break-word;
 }
 
@@ -114,7 +108,6 @@ body {
   font-family: var(--font-body);
   color: var(--color-text-muted);
   font-size: 0.875rem;
-  /* Fix 5: Ensure long subtitles wrap */
   overflow-wrap: break-word;
 }
 
@@ -123,14 +116,12 @@ body {
   margin-bottom: 24px;
   line-height: 1.65;
   color: var(--color-text-primary);
-  /* Fix 5: Ensure bio text cleanly wraps inside the container */
   overflow-wrap: break-word;
 }
 
 .card__meta {
   display: flex;
   align-items: center;
-  /* Fix 6: Ensure time row gracefully wraps if content length swells */
   flex-wrap: wrap;
   gap: 8px;
   padding: 12px 32px;
@@ -144,7 +135,6 @@ output[data-testid="test-user-time"] {
   font-variant-numeric: tabular-nums;
   color: var(--color-accent);
   font-weight: 600;
-  /* Fix 5 & 6: Time value protection */
   overflow-wrap: break-word;
 }
 
@@ -203,7 +193,6 @@ output[data-testid="test-user-time"] {
   margin-bottom: 10px;
 }
 
-/* Fix 4 & Fix b: Hobbies and dislikes lists wrapping configurations */
 .card__tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -251,7 +240,8 @@ ul[data-testid="test-user-dislikes"] li {
   .card__avatar-wrap {
     position: static;
     margin-top: 42px;
-    margin-left: 16px;
+    margin-left: 0;
+    transform: none;
   }
 
   .card__avatar {
@@ -268,28 +258,20 @@ ul[data-testid="test-user-dislikes"] li {
   }
 }
 
-/* Fix a & Fix 7: Allow focus rings to be fully visible by detaching overflow on tablet+ */
 @media (min-width: 481px) {
   .profile-card {
     overflow: visible;
   }
 
-  /* Restore the border radiuses to the banner since the card wrapper no longer clips it natively */
-  .card__banner,
-  .card__banner::before {
+  .card__banner {
     border-top-left-radius: var(--radius-card);
     border-top-right-radius: var(--radius-card);
   }
 }
 
-/* Fix c: Respect OS reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition-duration: .01ms !important;
   }
 }
-
-/* Fix d: Confirmed `--shadow-card` appears natively clean in warm light OS theme settings. No distinct dark-scheme overrides applied. */
-
-/* STAGE 5 COMPLETE */
