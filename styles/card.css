@@ -29,8 +29,9 @@ body {
       transparent 4px);
   font-family: var(--font-body);
   color: var(--color-text-primary);
-  margin: 0;
+  padding-bottom: 100px;
   box-sizing: border-box;
+
 }
 
 *:focus {
@@ -52,6 +53,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  border: ;
+  border-color: red;
 }
 
 .card__banner {
@@ -163,26 +166,28 @@ output[data-testid="test-user-time"] {
 .card__socials ul {
   display: flex;
   flex-wrap: wrap;
-  /* Fix 3: Social link pills wrap gracefully using an 8px spacing block */
-  gap: 8px;
+  justify-content: center;
+  gap: 16px;
   list-style: none;
   padding: 0;
 }
 
 .card__socials a {
-  display: inline-block;
-  padding: 6px 16px;
-  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   background: var(--color-tag-bg);
   color: var(--color-accent);
   text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: filter 0.15s ease;
+  transition: filter 0.15s ease, transform 0.2s ease;
 }
 
 .card__socials a:hover {
   filter: brightness(0.9);
+  transform: translateY(-2px);
 }
 
 .card__list-section {
@@ -245,7 +250,7 @@ ul[data-testid="test-user-dislikes"] li {
 
   .card__avatar-wrap {
     position: static;
-    margin-top: -42px;
+    margin-top: 42px;
     margin-left: 16px;
   }
 
