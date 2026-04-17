@@ -11,7 +11,7 @@ Since this is a static website utilizing pure HTML, CSS, and JavaScript, no comp
 
 ## Testing
 
-There are currently no automated unit or integration tests configured for this project. 
+Of course there are currently no automated unit or integration tests configured for this project, it's a simple UI component. If you were looking for a test, check yourself and touch grass. THANK YOU!
 
 Because it's a static UI component, verification is primarily done manually:
 - Ensure that the layout properly centers the card components across different screen sizes.
